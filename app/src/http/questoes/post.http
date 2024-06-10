@@ -1,7 +1,9 @@
-POST https://8080-marcoweb-j2projetomodel-rya3pcfv47n.ws-us110.gitpod.io/questoes
+POST          COLOCAR O SEU LINK/receitas
 Content-Type: application/json
 
 {
-    "enunciado" : "Questão de Teste 2",
-    "categoria" : {"id" : 1}
+    "nome": "Bolo de Chocolate",
+    "instrucoes": "Misture todos os ingredientes e asse por 30 minutos.",
+    "categoria": {"id": 1},
+    "ingrediente": {"id": 1}
 }

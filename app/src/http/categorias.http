@@ -1,4 +1,4 @@
-@baseUrl = https://8080-marcoweb-j2projetomodel-wsvoib82jkw.ws-us110.gitpod.io
+@baseUrl = COLOCAR O SEU LINK
 
 ###
 GET {{baseUrl}}/categorias
