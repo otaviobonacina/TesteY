@@ -14,26 +14,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import application.model.Categoria;
-import application.repository.CategoriaRepository;
+import application.model.Ingrediente;
+import application.repository.IngredienteRepository;
 
 @RestController
-@RequestMapping("/categorias")
-public class CategoriaController {
+@RequestMapping("/ingredientes")
+public class IngredienteController {
     @Autowired
-    private CategoriaRepository categoriaRepo;
+    private IngredienteRepository ingredienteRepo;
 
     @GetMapping
-    public Iterable<Categoria> getAll() {
-        return categoriaRepo.findAll();
+    public Iterable<Ingrediente> getAll() {
+        return ingredienteRepo.findAll();
     }
 
     @GetMapping("/{id}")
-    public Categoria getOne(@PathVariable long id) {
-        Optional<Categoria> result = categoriaRepo.findById(id);
+    public Ingrediente getOne(@PathVariable long id) {
+        Optional<Ingrediente> result = ingredienteRepo.findById(id);
         if(result.isEmpty()) {
             throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Categoria Não Encontrada"
+                HttpStatus.NOT_FOUND, "Ingrediente Não Encontrado"
             );
         }
         return result.get();
@@ -41,31 +41,31 @@ public class CategoriaController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable long id) {
-        if(categoriaRepo.existsById(id)) {
-            categoriaRepo.deleteById(id);
+        if(ingredienteRepo.existsById(id)) {
+            ingredienteRepo.deleteById(id);
         } else {
             throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Categoria Não Encontrada"
+                HttpStatus.NOT_FOUND, "Ingrediente Não Encontrado"
             );
         }
     }
 
     @PostMapping
-    public Categoria post(@RequestBody Categoria categoria) {
-        return categoriaRepo.save(categoria);
+    public Ingrediente post(@RequestBody Ingrediente ingrediente) {
+        return ingredienteRepo.save(ingrediente);
     }
 
     @PutMapping("/{id}")
-    public Categoria put(@RequestBody Categoria categoria, @PathVariable long id) {
-        Optional<Categoria> result = categoriaRepo.findById(id);
+    public Ingrediente put(@RequestBody Ingrediente ingrediente, @PathVariable long id) {
+        Optional<Ingrediente> result = ingredienteRepo.findById(id);
         if(result.isEmpty()) {
             throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Categoria Não Encontrada"
+                HttpStatus.NOT_FOUND, "Ingrediente Não Encontrado"
             );
         }
-        Categoria categoriaAtualizada = result.get();
-        categoriaAtualizada.setNome(categoria.getNome());
+        Ingrediente ingredienteAtualizado = result.get();
+        ingredienteAtualizado.setNome(ingrediente.getNome());
 
-        return categoriaRepo.save(categoriaAtualizada);
+        return ingredienteRepo.save(ingredienteAtualizado);
     }
 }

@@ -1,5 +1,5 @@
 package application.config;
-
+//https://8080-otaviobonac-apiparap2ot-l8ufk4ekh8h.ws-us114.gitpod.io/swagger-ui/index.html
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,8 +28,11 @@ public class SecurityConfig {
                     .sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     .and().authorizeHttpRequests()
-                    .requestMatchers(HttpMethod.POST, "/auth").permitAll()
-                    .anyRequest().authenticated()
+                    // .requestMatchers(HttpMethod.POST, "/auth").permitAll()
+                    // .requestMatchers(HttpMethod.GET,"/swagger-ui/*").permitAll()
+                    // .requestMatchers(HttpMethod.GET,"/v3/api-docs/**").permitAll()
+                    // .anyRequest().authenticated()
+                    .anyRequest().permitAll()
                     .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                     .build();
     }
