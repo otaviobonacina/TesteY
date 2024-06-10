@@ -1,0 +1,26 @@
+@baseUrl = https://8080-marcoweb-j2projetomodel-wsvoib82jkw.ws-us110.gitpod.io
+
+###
+GET {{baseUrl}}/ingredientes
+
+###
+GET {{baseUrl}}/ingredientes/1
+
+###
+POST {{baseUrl}}/ingredientes
+Content-Type: application/json
+
+{
+    "nome": "Farinha"
+}
+
+###
+PUT {{baseUrl}}/ingredientes/1
+Content-Type: application/json
+
+{
+    "nome": "Açúcar"
+}
+
+###
+DELETE {{baseUrl}}/ingredientes/1

@@ -1,17 +1,26 @@
-@baseUrl = https://8080-marcoweb-j2projetomodel-mgnua1ju1io.ws-us114.gitpod.io
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgUXVpenplcyIsInN1YiI6ImZ1bGFubyIsImV4cCI6MTcxNjI0MzU2OH0.gt8PrvF_cw0YjVdymBWm0Xog0_sIkVAK2UdzB_fy_cs
+@baseUrl = https://8080-marcoweb-j2projetomodel-wsvoib82jkw.ws-us110.gitpod.io
 
 ###
 GET {{baseUrl}}/categorias
-Authorization: Bearer {{token}}
 
-
+###
+GET {{baseUrl}}/categorias/1
 
 ###
 POST {{baseUrl}}/categorias
-Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "nome": "Conhecimentos Gerais"
+    "nome": "Sobremesas"
 }
+
+###
+PUT {{baseUrl}}/categorias/1
+Content-Type: application/json
+
+{
+    "nome": "Pratos Principais"
+}
+
+###
+DELETE {{baseUrl}}/categorias/1
